@@ -20,6 +20,8 @@
 ;; - doom-silver-slate: Silver and slate with seafoam teal accents
 ;; - doom-cyan-charcoal: Cyan and charcoal with vibrant accents
 ;; - doom-purple-gold: Purple and gold with elegant accents
+;; - doom-orange-grey: Orange and grey with complementary accents
+;; - doom-burgundy-rose: Burgundy and rose gold with soft pink accents
 ;;
 ;; Light themes:
 ;; - doom-pink-sunshine: Deep pink and sunshine yellow with electric blue accents
@@ -27,6 +29,8 @@
 ;; - doom-ocean-gold: Blue-green and blue-silver with golden accents
 ;; - doom-teal-terracotta: Teal and terracotta with lavender accents
 ;; - doom-orange-grey: Orange and grey with complementary accents
+;; - doom-warm-charcoal: Warm gray and charcoal with teal accents
+;; - doom-dusty-steel: Dusty blue and steel blue with golden yellow accents
 ;;
 ;; Usage:
 ;;   (require 'doom-two-tone-themes)
@@ -44,14 +48,25 @@
 (defconst doom-two-tone-themes-list
   '((doom-navy-copper . "Navy blue and copper with coral accents (dark)")
     (doom-silver-slate . "Silver and slate with seafoam teal accents (dark)")
-    (doom-cyan-charcoal . "Cyan and charcoal with vibrant accents (dark)")
-    (doom-purple-gold . "Purple and gold with elegant accents (dark)")
+    (doom-cyan-charcoal . "Cyan and charcoal with coral accents (dark)")
+    (doom-purple-gold . "Purple and gold with mint green accents (dark)")
+    (doom-orange-grey . "Orange and grey with complementary accents (dark)")
+    (doom-burgundy-rose . "Burgundy and rose gold with soft pink accents (dark)")
     (doom-pink-sunshine . "Deep pink and sunshine yellow with electric blue accents (light)")
     (doom-slate-mushroom . "Slate blue and mushroom gray with rose gold accents (light)")
-    (doom-ocean-gold . "Blue-green and blue-silver with golden accents (light)")
+    (doom-ocean-gold . "Blue-green and blue-silver with coral accents (light)")
     (doom-teal-terracotta . "Teal and terracotta with lavender accents (light)")
-    (doom-orange-grey . "Orange and grey with complementary accents (light)"))
+    (doom-dusty-steel . "Dusty blue and steel blue with golden yellow accents (light)")
+    (doom-warm-charcoal . "Warm gray and charcoal with teal accents (light)"))
   "List of available two-tone themes with descriptions.")
+
+(defconst doom-two-tone-dark-themes
+  '(doom-navy-copper doom-silver-slate doom-cyan-charcoal doom-purple-gold doom-orange-grey doom-burgundy-rose)
+  "List of dark two-tone themes.")
+
+(defconst doom-two-tone-light-themes
+  '(doom-pink-sunshine doom-slate-mushroom doom-ocean-gold doom-teal-terracotta doom-dusty-steel doom-warm-charcoal)
+  "List of light two-tone themes.")
 
 (defconst doom-two-tone-dark-themes
   '(doom-navy-copper doom-silver-slate doom-cyan-charcoal doom-purple-gold)
