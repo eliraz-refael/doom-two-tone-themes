@@ -117,7 +117,7 @@ Can be an integer to determine the exact padding."
    (doc-comments   (doom-lighten (if doom-purple-gold-brighter-comments base6 base5) 0.25))
    (constants      gold-bright)
    (functions      purple-light)
-   (keywords       purple-dark)
+   (keywords       purple-bright)   ; CHANGED: was purple-dark, now purple-bright for better contrast
    (methods        gold)
    (operators      base7)
    (type           gold-light)
