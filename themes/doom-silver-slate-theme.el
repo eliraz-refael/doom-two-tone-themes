@@ -54,14 +54,14 @@ Can be an integer to determine the exact padding."
   :background-mode 'dark
 
   ;; name        default   256           16
-  ((bg         '("#0d1117" "#0d1117"     "black"        )) ; Very dark blue-gray
+  ((bg         '("#1c2128" "#1c2128"     "black"        )) ; Dark slate (softer than pure black)
    (fg         '("#e6edf3" "#e6edf3"     "white"        )) ; Soft silver-white
 
    ;; These are off-color variants of bg/fg, used primarily for `solaire-mode',
    ;; but can also be useful as a basis for subtle highlights (e.g. for hl-line
    ;; or region), especially when paired with the `doom-darken', `doom-lighten',
    ;; and `doom-blend' helper functions.
-   (bg-alt     '("#161b22" "#161b22"     "black"        )) ; Slightly lighter dark gray
+   (bg-alt     '("#21262d" "#21262d"     "black"        )) ; Slightly lighter slate
    (fg-alt     '("#b1bac4" "#b1bac4"     "brightwhite"  )) ; Muted silver
 
    ;; These should represent a spectrum from bg to fg, where base0 is a starker
