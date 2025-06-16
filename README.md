@@ -4,6 +4,82 @@ A sophisticated collection of two-tone themes for **Doom Emacs**, each following
 
 > **Note**: These themes are specifically designed and tested for Doom Emacs. While they may work with vanilla Emacs, they have not been thoroughly tested outside of the Doom Emacs environment.
 
+## Installation
+
+### Doom Emacs (Recommended)
+
+For Doom Emacs users, add the following to your `packages.el` file:
+
+```elisp
+(package! doom-two-tone-themes
+  :recipe (:host github
+           :repo "eliraz-refael/doom-two-tone-themes"
+           :files ("doom-two-tone-themes.el" "themes/*.el")))
+```
+
+Then run `doom sync` in your terminal, and restart Emacs.
+
+### Configuration
+
+Add this line to your `config.el` to make the themes available:
+
+```elisp
+(require 'doom-two-tone-themes)
+```
+
+### Usage
+
+Once installed, you can use the themes in several ways:
+
+#### Method 1: Interactive Theme Selection
+- Use `SPC h t` (or `M-x consult-theme`) to interactively browse and preview all available themes
+- All doom-two-tone themes will appear in the list with their full names
+
+#### Method 2: Load Specific Theme
+Load a specific theme directly in your `config.el`:
+
+```elisp
+(setq doom-theme 'doom-ocean-gold)
+```
+
+Or load it interactively:
+
+```elisp
+M-x load-theme RET doom-ocean-gold RET
+```
+
+#### Method 3: Random Theme Functions
+The package includes several convenience functions:
+
+```elisp
+;; Load a random theme from the collection
+M-x doom-two-tone-themes-load-random
+
+;; Load a random dark theme
+M-x doom-two-tone-themes-load-random-dark
+
+;; Load a random light theme
+M-x doom-two-tone-themes-load-random-light
+
+;; List all available themes with descriptions
+M-x doom-two-tone-themes-list-themes
+```
+
+### Manual Installation (Alternative)
+
+If you prefer manual installation:
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/eliraz-refael/doom-two-tone-themes.git
+   ```
+
+2. Add the themes directory to your `custom-theme-load-path`:
+   ```elisp
+   (add-to-list 'custom-theme-load-path "/path/to/doom-two-tone-themes/")
+   (require 'doom-two-tone-themes)
+   ```
+
 ## Philosophy
 
 Each theme in this collection is built around the principle of visual harmony through constraint. By limiting the palette to two primary colors plus one accent, these themes achieve:
@@ -107,3 +183,21 @@ A calming light theme using dusty blue and steel blue tones with golden yellow a
 A sophisticated monotone light theme using warm gray and charcoal tones with vibrant teal accents. Professional and elegant, perfect for minimalist aesthetics.
 
 ![Warm Charcoal Theme](screenshots/doom-warm-charcoal-preview.png)
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for new color combinations or improvements to existing themes, please feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the GPL-3.0 License - see the LICENSE file for details.
+
+# Acknowledgments
+
+- Built on the excellent doom-themes framework
+- Inspired by the philosophy of constraint-based design
+- Thanks to the Doom Emacs community for their continued support and feedback
+- Special thanks to community contributors who helped improve this package:
+
+- @gusgustavsohn - for providing installation instructions and package configuration
+- @ScriptMang - for valuable feedback and suggestions
