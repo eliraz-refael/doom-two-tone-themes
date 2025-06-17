@@ -93,18 +93,26 @@ Can be an integer to determine the exact padding."
    (mint           '("#7fb99f" "#7fb99f"   "brightgreen"  )) ; Medium mint
    (mint-light     '("#9dd6c4" "#9dd6c4"   "brightgreen"  )) ; Light mint
 
+   ;; Additional colors for better diff visibility
+   (diff-added-bg    '("#1a3d2e" "#1a3d2e"   "green"        )) ; Dark green background for added lines
+   (diff-added-fg    '("#98fb98" "#98fb98"   "brightgreen"  )) ; Pale green text for added lines
+   (diff-removed-bg  '("#4a1e2b" "#4a1e2b"   "red"          )) ; Dark red background for removed lines
+   (diff-removed-fg  '("#ffb3ba" "#ffb3ba"   "brightred"    )) ; Light red text for removed lines
+   (diff-changed-bg  '("#3d3420" "#3d3420"   "yellow"       )) ; Dark yellow background for changed lines
+   (diff-changed-fg  '("#fff4a3" "#fff4a3"   "brightyellow" )) ; Light yellow text for changed lines
+
    (grey       base4)
-   (red        purple-dark)   ; Using dark purple for "red" elements
-   (orange     gold-dark)     ; Using dark gold for "orange" elements
-   (green      mint)          ; Using mint for "green" elements
-   (teal       mint-light)    ; Using light mint for "teal" elements
-   (yellow     gold)          ; Using gold for "yellow" elements
-   (blue       purple)        ; Using purple for "blue" elements
-   (dark-blue  purple-dark)   ; Using dark purple for "dark-blue" elements
-   (magenta    purple-light)  ; Using light purple for "magenta" elements
-   (violet     purple-bright) ; Using bright purple for "violet" elements
-   (cyan       base6)         ; Using purple-grey for "cyan" elements
-   (dark-cyan  base4)         ; Using medium purple-grey for "dark-cyan" elements
+   (red        diff-removed-fg)   ; Using light red for better visibility
+   (orange     gold-dark)         ; Using dark gold for "orange" elements
+   (green      diff-added-fg)     ; Using light green for better visibility
+   (teal       mint-light)        ; Using light mint for "teal" elements
+   (yellow     diff-changed-fg)   ; Using light yellow for better visibility
+   (blue       purple)            ; Using purple for "blue" elements
+   (dark-blue  purple-dark)       ; Using dark purple for "dark-blue" elements
+   (magenta    purple-light)      ; Using light purple for "magenta" elements
+   (violet     purple-bright)     ; Using bright purple for "violet" elements
+   (cyan       base6)             ; Using purple-grey for "cyan" elements
+   (dark-cyan  base4)             ; Using medium purple-grey for "dark-cyan" elements
 
    ;; These are the "universal syntax classes" that doom-themes establishes.
    ;; These *must* be included in every doom themes, or your theme will throw an
@@ -125,12 +133,12 @@ Can be an integer to determine the exact padding."
    (variables      (doom-lighten purple 0.4))
    (numbers        gold-bright)
    (region         `(,(doom-lighten (car bg-alt) 0.15) ,@(doom-lighten (cdr base1) 0.35)))
-   (error          purple-dark)
-   (warning        gold)
-   (success        mint)
-   (vc-modified    gold)
-   (vc-added       mint)
-   (vc-deleted     purple-dark)
+   (error          diff-removed-fg)    ; Better visibility for errors
+   (warning        diff-changed-fg)    ; Better visibility for warnings
+   (success        diff-added-fg)      ; Better visibility for success
+   (vc-modified    diff-changed-fg)    ; Better visibility for modified files
+   (vc-added       diff-added-fg)      ; Better visibility for added files
+   (vc-deleted     diff-removed-fg)    ; Better visibility for deleted files
 
    ;; These are extra color variables used only in this theme; i.e. they aren't
    ;; mandatory for derived themes.
@@ -162,6 +170,24 @@ Can be an integer to determine the exact padding."
     :background modeline-bg-inactive :foreground modeline-fg-alt
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
    (mode-line-emphasis :foreground (if doom-purple-gold-brighter-modeline base8 highlight))
+
+   ;;;; Better diff colors for readability
+   (diff-added :background diff-added-bg :foreground diff-added-fg)
+   (diff-removed :background diff-removed-bg :foreground diff-removed-fg)
+   (diff-changed :background diff-changed-bg :foreground diff-changed-fg)
+   (diff-header :foreground base7 :background base2)
+   (diff-file-header :foreground base8 :background base3)
+   (diff-hunk-header :foreground gold-light :background base2)
+
+   ;;;; Magit diff improvements
+   (magit-diff-added :background diff-added-bg :foreground diff-added-fg)
+   (magit-diff-added-highlight :background (doom-lighten diff-added-bg 0.2) :foreground diff-added-fg)
+   (magit-diff-removed :background diff-removed-bg :foreground diff-removed-fg)
+   (magit-diff-removed-highlight :background (doom-lighten diff-removed-bg 0.2) :foreground diff-removed-fg)
+   (magit-diff-context :foreground base6)
+   (magit-diff-context-highlight :background base2 :foreground base7)
+   (magit-diff-hunk-heading :background base2 :foreground gold-light)
+   (magit-diff-hunk-heading-highlight :background base3 :foreground gold-light)
 
    ;;;; css-mode <built-in> / scss-mode
    (css-proprietary-property :foreground purple-light)
