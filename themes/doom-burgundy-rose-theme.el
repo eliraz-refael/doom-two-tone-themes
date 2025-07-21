@@ -76,35 +76,43 @@ Can be an integer to determine the exact padding."
    (base8      '("#f0e1e5" "#dfdfdf"     "white"        )) ; Very light rose
 
    ;; Burgundy palette - our primary color
-   (burgundy-dark  '("#4a1e2b" "#4a1e2b"   "red"          )) ; Dark burgundy
-   (burgundy       '("#722F37" "#722F37"   "brightred"    )) ; Medium burgundy
-   (burgundy-medium'("#8B1538" "#8B1538"   "brightred"    )) ; Bright burgundy
-   (burgundy-light '("#a64d79" "#a64d79"   "brightred"    )) ; Light burgundy
+   (burgundy-dark  '("#6b1e3a" "#6b1e3a"   "red"          )) ; IMPROVED: Lighter dark burgundy for better contrast
+   (burgundy       '("#9f2d55" "#9f2d55"   "brightred"    )) ; IMPROVED: Brighter medium burgundy
+   (burgundy-medium'("#c2185b" "#c2185b"   "brightred"    )) ; IMPROVED: Much brighter burgundy
+   (burgundy-light '("#e91e63" "#e91e63"   "brightred"    )) ; IMPROVED: Very bright burgundy
 
-   ;; Rose gold palette - our secondary color
-   (rose-dark      '("#b8860b" "#b8860b"   "yellow"       )) ; Dark rose gold
-   (rose           '("#d4a574" "#d4a574"   "brightyellow" )) ; Medium rose gold
-   (rose-medium    '("#e8b4b8" "#e8b4b8"   "brightyellow" )) ; Light rose gold
-   (rose-light     '("#f2c2c6" "#f2c2c6"   "brightyellow" )) ; Very light rose gold
+   ;; Rose gold palette - our secondary color (FIXED: No more yellow tones)
+   (rose-dark      '("#c2185b" "#c2185b"   "red"          )) ; FIXED: Rose-burgundy instead of gold
+   (rose           '("#e91e63" "#e91e63"   "brightred"    )) ; FIXED: Bright rose instead of gold
+   (rose-medium    '("#f48fb1" "#f48fb1"   "brightred"    )) ; FIXED: Light rose instead of gold
+   (rose-light     '("#ffc1cc" "#ffc1cc"   "brightred"    )) ; FIXED: Very light rose instead of gold
 
    ;; Soft pink palette for strings - our accent color
-   (pink-dark      '("#c2185b" "#c2185b"   "magenta"      )) ; Dark pink
-   (pink           '("#ffb6c1" "#ffb6c1"   "brightmagenta")) ; Light pink
-   (pink-light     '("#ffc0cb" "#ffc0cb"   "brightmagenta")) ; Soft pink
-   (pink-muted     '("#d8a7ca" "#d8a7ca"   "magenta"      )) ; Muted pink for comments
+   (pink-dark      '("#d81b60" "#d81b60"   "magenta"      )) ; IMPROVED: Brighter dark pink
+   (pink           '("#ff80ab" "#ff80ab"   "brightmagenta")) ; IMPROVED: Much brighter pink
+   (pink-light     '("#ffa1cc" "#ffa1cc"   "brightmagenta")) ; IMPROVED: Very bright soft pink
+   (pink-muted     '("#e1a3c7" "#e1a3c7"   "magenta"      )) ; IMPROVED: Brighter muted pink
+
+   ;; IMPROVED: Better diff colors using only rose-burgundy-pink palette
+   (diff-added-bg    '("#2a1f2a" "#2a1f2a"   "magenta"      )) ; Dark rose-burgundy background
+   (diff-added-fg    '("#ffb3d9" "#ffb3d9"   "brightmagenta")) ; Bright rose-pink text
+   (diff-removed-bg  '("#3d1a20" "#3d1a20"   "red"          )) ; Burgundy-tinted red background
+   (diff-removed-fg  '("#ff9999" "#ff9999"   "brightred"    )) ; Bright light red text
+   (diff-changed-bg  '("#2d1a2a" "#2d1a2a"   "magenta"      )) ; Rose-burgundy background
+   (diff-changed-fg  '("#e699cc" "#e699cc"   "brightmagenta")) ; Medium rose-pink text
 
    (grey       base4)
-   (red        burgundy-dark)   ; Using dark burgundy for "red" elements
-   (orange     rose-dark)       ; Using dark rose gold for "orange" elements
-   (green      pink-light)      ; Using light pink for "green" elements
-   (teal       rose-medium)     ; Using rose gold for "teal" elements
-   (yellow     rose-light)      ; Using light rose gold for "yellow" elements
-   (blue       burgundy)        ; Using burgundy for "blue" elements
-   (dark-blue  burgundy-dark)   ; Using dark burgundy for "dark-blue" elements
-   (magenta    burgundy-light)  ; Using light burgundy for "magenta" elements
-   (violet     pink-light)      ; Using light pink for "violet" elements
-   (cyan       rose)            ; Using rose gold for "cyan" elements
-   (dark-cyan  rose-dark)       ; Using dark rose gold for "dark-cyan" elements
+   (red        burgundy-medium)   ; FIXED: Added back the red definition
+   (orange     rose-medium)       ; FIXED: Using rose instead of yellow-toned rose
+   (green      pink-light)        ; Using bright pink for green elements
+   (teal       rose)              ; FIXED: Using rose instead of yellow-toned rose
+   (yellow     rose-light)        ; FIXED: Using light rose instead of gold
+   (blue       burgundy)          ; Using medium burgundy for blue
+   (dark-blue  burgundy-dark)     ; Using improved dark burgundy
+   (magenta    burgundy-light)    ; CHANGED: Using very bright burgundy for magenta
+   (violet     pink-light)        ; Using bright pink for violet
+   (cyan       rose)              ; FIXED: Using rose instead of gold
+   (dark-cyan  rose-dark)         ; FIXED: Using rose-burgundy instead of gold
 
    ;; These are the "universal syntax classes" that doom-themes establishes.
    ;; These *must* be included in every doom themes, or your theme will throw an
@@ -112,25 +120,25 @@ Can be an integer to determine the exact padding."
    (highlight      burgundy-light)
    (vertical-bar   (doom-darken base1 0.1))
    (selection      base3)
-   (builtin        burgundy-light)
-   (comments       (if doom-burgundy-rose-brighter-comments pink-muted (doom-darken pink-muted 0.15)))
-   (doc-comments   (doom-lighten (if doom-burgundy-rose-brighter-comments pink-muted (doom-darken pink-muted 0.15)) 0.15))
-   (constants      rose-light)
-   (functions      burgundy-light)
-   (keywords       burgundy-medium)
-   (methods        rose)
+   (builtin        burgundy-light)  ; CHANGED: Using bright burgundy
+   (comments       (if doom-burgundy-rose-brighter-comments pink-muted (doom-lighten pink-muted 0.1))) ; IMPROVED: Brighter comments
+   (doc-comments   (doom-lighten (if doom-burgundy-rose-brighter-comments pink-muted (doom-lighten pink-muted 0.1)) 0.2)) ; IMPROVED: Much brighter doc comments
+   (constants      rose-medium)     ; FIXED: Using rose instead of gold
+   (functions      burgundy-light)  ; CHANGED: Using bright burgundy
+   (keywords       rose)            ; FIXED: Using rose instead of gold
+   (methods        rose-dark)       ; FIXED: Using rose-burgundy instead of gold
    (operators      base7)
-   (type           rose-medium)
-   (strings        pink)
-   (variables      (doom-lighten burgundy 0.4))
-   (numbers        rose-light)
+   (type           rose-medium)     ; FIXED: Using rose instead of gold
+   (strings        pink)            ; Using improved bright pink
+   (variables      (doom-lighten burgundy 0.6)) ; IMPROVED: Much lighter variables
+   (numbers        rose-light)      ; FIXED: Using light rose instead of gold
    (region         `(,(doom-lighten (car bg-alt) 0.15) ,@(doom-lighten (cdr base1) 0.35)))
-   (error          burgundy-dark)
-   (warning        rose-dark)
-   (success        pink-light)
-   (vc-modified    rose-dark)
-   (vc-added       pink-light)
-   (vc-deleted     burgundy-dark)
+   (error          burgundy-light)  ; CHANGED: Using bright burgundy for better visibility
+   (warning        rose-medium)     ; CHANGED: Using bright rose gold
+   (success        pink-light)      ; Using bright pink
+   (vc-modified    rose-medium)     ; CHANGED: Using bright rose gold
+   (vc-added       pink-light)      ; Using bright pink
+   (vc-deleted     burgundy-light)  ; CHANGED: Using bright burgundy
 
    ;; These are extra color variables used only in this theme; i.e. they aren't
    ;; mandatory for derived themes.
@@ -152,7 +160,7 @@ Can be an integer to determine the exact padding."
 
   ;;;; Base theme face overrides
   (((line-number &override) :foreground base4)
-   ((line-number-current-line &override) :foreground burgundy-light)
+   ((line-number-current-line &override) :foreground burgundy-light) ; CHANGED: Using bright burgundy
    ((font-lock-comment-face &override)
     :background (if doom-burgundy-rose-comment-bg (doom-lighten bg 0.05) 'unspecified))
    (mode-line
@@ -163,28 +171,53 @@ Can be an integer to determine the exact padding."
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
    (mode-line-emphasis :foreground (if doom-burgundy-rose-brighter-modeline base8 highlight))
 
+   ;;;; MUCH IMPROVED: Better diff colors for excellent readability
+   (diff-added :background diff-added-bg :foreground diff-added-fg :weight 'normal)
+   (diff-removed :background diff-removed-bg :foreground diff-removed-fg :weight 'normal)
+   (diff-changed :background diff-changed-bg :foreground diff-changed-fg :weight 'normal)
+   (diff-header :foreground rose-light :background base2 :weight 'bold)
+   (diff-file-header :foreground base8 :background base3 :weight 'bold)
+   (diff-hunk-header :foreground rose-medium :background base2 :weight 'bold)
+
+   ;;;; MUCH IMPROVED: Magit diff with excellent readability
+   (magit-diff-added :background diff-added-bg :foreground diff-added-fg :extend t)
+   (magit-diff-added-highlight :background (doom-lighten diff-added-bg 0.3) :foreground diff-added-fg :weight 'bold :extend t)
+   (magit-diff-removed :background diff-removed-bg :foreground diff-removed-fg :extend t)
+   (magit-diff-removed-highlight :background (doom-lighten diff-removed-bg 0.3) :foreground diff-removed-fg :weight 'bold :extend t)
+   (magit-diff-context :foreground base6)
+   (magit-diff-context-highlight :background base2 :foreground base7)
+   (magit-diff-hunk-heading :background base2 :foreground rose-medium :weight 'bold)
+   (magit-diff-hunk-heading-highlight :background base3 :foreground rose-light :weight 'bold)
+
+   ;; Additional magit improvements
+   (magit-diff-lines-heading :background burgundy-medium :foreground base8 :weight 'bold)
+   (magit-diff-file-heading :background base2 :foreground rose-light :weight 'bold)
+   (magit-diff-file-heading-highlight :background base3 :foreground rose-light :weight 'bold)
+   (magit-section-heading :foreground burgundy-light :weight 'bold)
+   (magit-section-highlight :background base2)
+
    ;;;; css-mode <built-in> / scss-mode
-   (css-proprietary-property :foreground burgundy-light)
-   (css-property             :foreground rose)
-   (css-selector             :foreground burgundy-medium)
+   (css-proprietary-property :foreground burgundy-light) ; CHANGED: Using bright burgundy
+   (css-property             :foreground rose)           ; CHANGED: Using brighter rose
+   (css-selector             :foreground burgundy-medium) ; CHANGED: Using brighter burgundy
    ;;;; doom-modeline
    (doom-modeline-bar :background (if doom-burgundy-rose-brighter-modeline modeline-bg highlight))
    (doom-modeline-buffer-file :inherit 'mode-line-buffer-id :weight 'bold)
    (doom-modeline-buffer-path :inherit 'mode-line-emphasis :weight 'bold)
-   (doom-modeline-buffer-project-root :foreground rose :weight 'bold)
+   (doom-modeline-buffer-project-root :foreground rose :weight 'bold) ; CHANGED: Using brighter rose
    ;;;; elscreen
    (elscreen-tab-other-screen-face :background base3 :foreground base1)
    ;;;; ivy
    (ivy-current-match :background base3 :distant-foreground base0 :weight 'normal)
    ;;;; LaTeX-mode
-   (font-latex-math-face :foreground rose)
+   (font-latex-math-face :foreground rose) ; CHANGED: Using brighter rose
    ;;;; markdown-mode
    (markdown-markup-face :foreground base5)
-   (markdown-header-face :inherit 'bold :foreground burgundy-light)
+   (markdown-header-face :inherit 'bold :foreground burgundy-light) ; CHANGED: Using bright burgundy
    ((markdown-code-face &override) :background (doom-lighten base3 0.05))
    ;;;; rjsx-mode
-   (rjsx-tag :foreground burgundy-light)
-   (rjsx-attr :foreground rose)
+   (rjsx-tag :foreground burgundy-light) ; CHANGED: Using bright burgundy
+   (rjsx-attr :foreground rose)          ; CHANGED: Using brighter rose
    ;;;; solaire-mode
    (solaire-mode-line-face
     :inherit 'mode-line
